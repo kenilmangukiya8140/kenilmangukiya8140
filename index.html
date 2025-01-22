@@ -114,21 +114,19 @@
     }
 
     // Display detailed information for a Pokémon
-    function viewDetails(url) {
-      fetch(url)
-        .then(response => response.json())
-        .then(pokemon => {
-          const modalBody = document.getElementById('modal-body');
-          modalBody.innerHTML = `
-            <h5>${pokemon.name}</h5>
-            <p>Height: ${pokemon.height}</p>
-            <p>Weight: ${pokemon.weight}</p>
-            <p>Base Experience: ${pokemon.base_experience}</p>
-          `;
-          $('#detailsModal').modal('show');
-        })
-        .catch(error => console.error('Error fetching details:', error));
-    }
+   function viewDetails(url) {
+  fetch(url)
+    .then(response => response.json())
+    .then(pokemon => {
+      const details = `
+        Name: ${pokemon.name}
+        Height: ${pokemon.height}
+        Weight: ${pokemon.weight}
+        Base Experience: ${pokemon.base_experience}
+      `;
+      alert(details); // Show Pokémon details in an alert box
+    })
+    .catch(error => console.error('Error fetching details:', error));
 
     // Initialize the page by fetching data
     fetchData();
